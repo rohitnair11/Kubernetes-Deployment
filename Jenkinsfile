@@ -15,7 +15,7 @@ pipeline {
 
         stage('Build Docker image') {
             steps {
-                sh 'docker build --tag=capstone .'
+                sh 'docker build -t rohitnair11/capstone .'
                 sh 'docker image ls'
             }
         }
