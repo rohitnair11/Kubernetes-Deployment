@@ -42,6 +42,7 @@ pipeline {
         stage('Deploy Blue Container') {
 			steps {
 				withAWS(region:'us-east-2', credentials:'aws-static') {
+                    sh "ls"
 					sh "kubectl apply -f ./blue-controller.json"
 				}
 			}
