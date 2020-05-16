@@ -43,7 +43,7 @@ pipeline {
 			steps {
 				withAWS(region:'us-east-2', credentials:'aws-static') {
                     sh "ls"
-					sh "kubectl --kubeconfig='~/.kube/config' apply -f ./blue-controller.json"
+					sh "kubectl --kubeconfig='/home/ubuntu/.kube/config' apply -f ./blue-controller.json"
 				}
 			}
 		}
