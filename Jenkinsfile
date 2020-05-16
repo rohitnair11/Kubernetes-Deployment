@@ -32,6 +32,7 @@ pipeline {
         stage('Set kubectl context') {
             steps {
 				withAWS(region:'us-east-2', credentials:'aws-static') {
+                    sh "kubectl config set-context --current --namespace=arn:aws:eks:us-east-2:701235088001:cluster/capstone"
                     sh "kubectl config get-contexts"
 					sh "kubectl config use-context arn:aws:eks:us-east-2:701235088001:cluster/capstone"
 				}
