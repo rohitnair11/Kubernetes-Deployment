@@ -7,12 +7,6 @@ pipeline {
             }
          }
 
-        // stage('Lint Python') {
-        //     steps {
-        //         sh 'pylint --disable=R,C,W1203 app.py'
-        //     }
-        // }
-
         stage('Build Docker image') {
             steps {
                 sh 'docker build -t rohitnair11/capstone .'
