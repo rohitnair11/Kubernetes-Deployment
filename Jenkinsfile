@@ -57,5 +57,13 @@ pipeline {
 				}
 			}
 		}
+
+        stage('Create service and redirect to Green') {
+			steps {
+				withAWS(region:'us-east-2', credentials:'aws-static') {
+					sh "kubectl --kubeconfig='/home/ubuntu/.kube/config' apply -f ./green-service.json"
+				}
+			}
+		}
     }
 }
