@@ -51,7 +51,7 @@ pipeline {
 		stage('Deploy Green Container') {
 			steps {
 				withAWS(region:'us-east-2', credentials:'aws-static') {
-					sh "kubectl apply -f ./green-controller.json"
+					sh "kubectl --kubeconfig='/home/ubuntu/.kube/config' apply -f ./green-controller.json"
 				}
 			}
 		}
@@ -59,7 +59,7 @@ pipeline {
 		stage('Create service and redirect to Blue') {
 			steps {
 				withAWS(region:'us-east-2', credentials:'aws-static') {
-					sh "kubectl apply -f ./blue-service.json"
+					sh "kubectl --kubeconfig='/home/ubuntu/.kube/config' apply -f ./blue-service.json"
 				}
 			}
 		}
